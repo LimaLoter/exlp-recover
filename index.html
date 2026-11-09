@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECP CLUB | Возрождение торговли</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa8c2c;
+            --bg-dark: #0a0a0a;
+            --bg-panel: #141414;
+            --rus-white: #ffffff;
+            --rus-blue: #0039a6;
+            --rus-red: #d52b1e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--rus-white);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(0,57,166,0.1) 0%, rgba(10,10,10,1) 30%, rgba(10,10,10,1) 70%, rgba(213,43,30,0.1) 100%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Russo One', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-svg {
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+        }
+
+        .logo-text {
+            font-size: 28px;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--rus-white), var(--gold), var(--rus-white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #ccc;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #000;
+            font-weight: 900;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid var(--gold-light);
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+            background: linear-gradient(45deg, var(--gold), var(--gold-light), var(--rus-white));
+        }
+
+        /* --- Plan Section --- */
+        .plan-section {
+            padding: 60px 0;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M0 100L100 0" stroke="rgba(212,175,55,0.05)" stroke-width="2"/></svg>');
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border: 2px solid var(--gold-dark);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(212, 175, 55, 0.1);
+            background: rgba(20, 20, 20, 0.9);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(180deg, #1a1a1a, #0a0a0a);
+            color: var(--gold);
+            padding: 20px 15px;
+            font-size: 14px;
+            border-bottom: 2px solid var(--gold-dark);
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #333;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        tr:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .col-start {
+            color: var(--rus-red);
+            font-size: 20px;
+        }
+
+        .col-end {
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* --- Warning / Tax Section --- */
+        .tax-warning {
+            margin: 50px 0;
+            padding: 30px;
+            border: 2px dashed var(--rus-red);
+            background: rgba(213, 43, 30, 0.1);
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .tax-warning h3 {
+            color: var(--rus-white);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .tax-warning span {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* --- Trust Section --- */
+        .trust-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 57, 166, 0.2), transparent);
+        }
+
+        .trust-card {
+            background: #111;
+            border: 1px solid var(--gold);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .trust-card::before {
+            content: '★';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: var(--gold);
+            background: #111;
+            padding: 0 15px;
+        }
+
+        .trust-card p {
+            font-size: 20px;
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            font-family: 'Russo One', sans-serif;
+            font-size: 24px;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            th { font-size: 11px; padding: 10px 5px; }
+            td { font-size: 14px; padding: 12px 5px; }
+            .logo-text { font-size: 20px; }
+            .logo-svg { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo-area">
+                <!-- SVG Эмблема (Звезда с ECP) -->
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#d4af37" stroke-width="4"/>
+                    <polygon points="50,10 61,40 95,40 68,60 78,90 50,70 22,90 32,60 5,40 39,40" fill="none" stroke="#d4af37" stroke-width="4"/>
+                    <text x="50" y="58" font-family="Russo One" font-size="24" fill="#d4af37" text-anchor="middle" font-weight="bold">ECP</text>
+                </svg>
+                <div class="logo-text">ECP CLUB</div>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero">
+            <h1>Возрождение торговли криптовалютой</h1>
+            <p>Мы объединяем дисциплину, стратегию и сложный процент. Новый этап эволюции ECP Club под надежным руководством.</p>
+            <a href="#plan" class="cta-button">Вступить в клуб</a>
+        </section>
+
+        <!-- PLAN -->
+        <section class="plan-section" id="plan">
+            <h2 class="section-title">План сложного процента</h2>
+            <p class="section-subtitle">Пример дохода при 3 торговых сигналах в день (Пн-Пт)</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Начальный капитал (USDT)</th>
+                            <th>Баланс через 30 дней</th>
+                            <th>Баланс через 60 дней</th>
+                            <th>Баланс через 90 дней</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Случайные данные, сгенерированные для примера -->
+                        <tr>
+                            <td class="col-start">500 USDT</td>
+                            <td>1 045 USDT</td>
+                            <td>2 158 USDT</td>
+                            <td class="col-end">4 512 USDT</td>
+                        </tr>
+                        <tr>
+                            <td class="col-start">1 500 USDT</td>
+                            <td>3 135 USDT</td>
+                            <td>6 474 USDT</td>
+                            <td class="col-end">13 536 USDT</td>
+                        </tr>
+                        <tr>
+                            <td class="col-start">4 000 USDT</td>
+                            <td>8 360 USDT</td>
+                            <td>17 264 USDT</td>
+                            <td class="col-end">36 096 USDT</td>
+                        </tr>
+                        <tr>
+                            <td class="col-start">8 500 USDT</td>
+                            <td>17 765 USDT</td>
+                            <td>36 686 USDT</td>
+                            <td class="col-end">76 704 USDT</td>
+                        </tr>
+                        <tr>
+                            <td class="col-start">15 000 USDT</td>
+                            <td>31 350 USDT</td>
+                            <td>64 740 USDT</td>
+                            <td class="col-end">135 360 USDT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAX WARNING -->
+        <div class="tax-warning">
+            <h3>Вход в клуб облагается налогом</h3>
+            <p>Единоразовый взнос за доступ к сигналам и инфраструктуре составляет <span>50$</span></p>
+        </div>
+
+        <!-- TRUST -->
+        <section class="trust-section">
+            <div class="trust-card">
+                <p>«Marko Belini ручается за качество. Этот новый проект будет значительно более успешным, чем предыдущий. Мы учли все ошибки и создали непробиваемую систему.»</p>
+                <div class="signature">— Marko Belini</div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2024 ECP CLUB. Все права защищены. Торговля криптовалютой сопряжена с риском.</p>
+            <p>Политика конфиденциальности | Условия использования</p>
+        </footer>
+    </div>
+
+</body>
+</html>
