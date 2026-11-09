@@ -99,27 +99,6 @@
             color: #ccc;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 18px 40px;
-            background: linear-gradient(45deg, var(--gold-dark), var(--gold), var(--gold-light));
-            color: #000;
-            font-weight: 900;
-            font-size: 18px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 2px solid var(--gold-light);
-            border-radius: 4px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
-            background: linear-gradient(45deg, var(--gold), var(--gold-light), var(--rus-white));
-        }
-
         /* --- Plan Section --- */
         .plan-section {
             padding: 60px 0;
@@ -188,7 +167,74 @@
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* --- Warning / Tax Section --- */
+        /* --- Payment & QR Section --- */
+        .payment-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.9));
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .payment-section h3 {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .payment-section p {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .qr-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-container:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-image {
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #000;
+            font-weight: 900;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid var(--gold-light);
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+            background: linear-gradient(45deg, var(--gold), var(--gold-light), var(--rus-white));
+        }
+
+        /* --- Tax Warning --- */
         .tax-warning {
             margin: 50px 0;
             padding: 30px;
@@ -272,6 +318,8 @@
             td { font-size: 14px; padding: 12px 5px; }
             .logo-text { font-size: 20px; }
             .logo-svg { width: 40px; height: 40px; }
+            .payment-section { padding: 20px; }
+            .qr-image { width: 150px; height: 150px; }
         }
     </style>
 </head>
@@ -295,7 +343,18 @@
         <section class="hero">
             <h1>Возрождение торговли криптовалютой</h1>
             <p>Мы объединяем дисциплину, стратегию и сложный процент. Новый этап эволюции ECP Club под надежным руководством.</p>
-            <a href="#plan" class="cta-button">Вступить в клуб</a>
+        </section>
+
+        <!-- PAYMENT & QR SECTION -->
+        <section class="payment-section">
+            <h3>Оплата взноса</h3>
+            <p>Отсканируйте QR-код или нажмите кнопку ниже для перехода к оплате.</p>
+            <div class="qr-container">
+                <!-- QR-код генерируется через API сервиса. Внутри зашита ваша ссылка на YouTube -->
+                <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ%26list%3DRDdQw4w9WgXcQ%26start_radio%3D1" alt="QR код для оплаты">
+            </div>
+            <!-- Кнопка ведет на YouTube -->
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank" class="cta-button">Внести взнос</a>
         </section>
 
         <!-- PLAN -->
@@ -314,7 +373,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Случайные данные, сгенерированные для примера -->
                         <tr>
                             <td class="col-start">500 USDT</td>
                             <td>1 045 USDT</td>
